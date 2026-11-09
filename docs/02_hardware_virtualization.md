@@ -62,11 +62,11 @@ A Type 1 hypervisor runs directly on the host's hardware with no underlying oper
 Common Type 1 hypervisors include:
 
 - VMware ESXi
-- Microsoft Hyper-V
+- [Microsoft Hyper-V](03_type1_hypervisors.md#hyper-v)
 - Xen
-- KVM
+- [KVM](03_type1_hypervisors.md#kernel-based-virtual-machine-kvm)
 - Oracle VM (OVM)
-- Proxmox VE
+- [Proxmox VE](03_type1_hypervisors.md#proxmox-ve)
 
 **Security** — Because there is no general-purpose OS underneath, the attack surface is minimal. The vulnerabilities common in full operating systems are largely absent, which strengthens the logical isolation between guest VMs.
 

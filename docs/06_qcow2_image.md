@@ -11,14 +11,14 @@ QCOW2 (QEMU Copy-On-Write version 2) is the primary disk image format used by QE
 
 ## QCOW2 Versions
 
-The QCOW2 header contains a `version` field that can be **2** or **3**:
+The QCOW2 header contains a `version` field:
 
-| Version | Introduced | Key Changes |
-|---------|------------|-------------|
-| **Version 2** | QEMU 0.6.0 (2004) | Original QCOW2 format with snapshots, AES encryption, zlib compression, and sparse allocation |
-| **Version 3** | QEMU 1.1 (2012) | Added feature bitmasks (incompatible, compatible, autoclear), configurable refcount width, lazy refcounts, and extended L2 entries for subcluster allocation |
+| Version | Introduced        | Key Changes |
+|---------|-------------------|-------------|
+| **2**   | QEMU 0.6.0 (2004) | Original QCOW2 format with snapshots, AES encryption, zlib compression, and sparse allocation |
+| **3**   | QEMU 1.1 (2012)   | Added feature bitmasks (incompatible, compatible, autoclear), configurable refcount width, lazy refcounts, and extended L2 entries for subcluster allocation |
 
-Version 3 (identified by `compat: 1.1` in `qemu-img info` output) is the default in modern QEMU. New capabilities are added through **feature bits** within version 3 rather than by incrementing the version number.
+Version 3 is the default in modern QEMU. New capabilities are added through **feature bits** within version 3 rather than by incrementing the version number.
 
 ## Prerequisites
 
@@ -384,7 +384,7 @@ A snapshot preserves the state of a virtual disk at a specific point in time, al
 
 The snapshot table stores metadata for all snapshots. Its location and count are specified by the header fields `Snapshots offset` and `Number of snapshots`.
 
-<img src="../pics/snapshot.jpg" alt="Snapshot structure" width="170">
+<img src="../pics/snapshot.jpg" alt="Snapshot structure" width="150">
 
 Each entry in the snapshot table contains:
 

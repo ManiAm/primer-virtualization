@@ -1,8 +1,8 @@
 # Virtualization Primer
 
-Virtualization has been a transformative force in computing since the 1960s, evolving from IBM mainframe time-sharing to today's container orchestration platforms. It encompasses a broad spectrum of technologies — from hardware-level hypervisors that run full operating systems in isolated virtual machines, to OS-level containerization that packages applications with their dependencies into lightweight, portable units.
+Virtualization has shaped computing since the 1960s, evolving from IBM mainframe time-sharing to today's microVMs and container orchestration platforms. It spans a broad spectrum — from hardware-level hypervisors that isolate full operating systems, to lightweight containers that package applications into portable units.
 
-This primer covers virtualization from the ground up: the history and motivation behind virtualization, hardware virtualization with hypervisors, hands-on emulation and VM management with QEMU, virtual networking, higher-level management tools like libvirt and Vagrant, and modern containerization with Docker.
+This primer covers the subject from the ground up: history and motivation, hypervisor types, hands-on emulation with QEMU, virtual networking, management tools (libvirt, Vagrant), containerization with Docker, lightweight virtualization (Firecracker, Kata Containers, gVisor), and network virtualization.
 
 ## Introduction & Hypervisors
 
