@@ -2,10 +2,11 @@
 
 Virtualization is a technology that creates multiple simulated environments — or dedicated resource partitions — from a single physical hardware system. In effect, one physical machine can behave as if it were several independent machines, each running its own operating system and applications.
 
-The three main categories of virtualization are:
+The main categories of virtualization are:
 
 - **Hardware Virtualization** — running multiple virtual machines on a single physical host
 - **Operating System Virtualization** — isolating applications in lightweight containers that share a single OS kernel
+- **Lightweight Virtualization** — combining VM-level isolation with container-like speed using microVMs, application kernels, and unikernels
 - **Network Virtualization** — abstracting physical network resources into software-defined logical networks
 
 Virtualization has fundamentally changed how infrastructure is provisioned, how services are delivered, and how IT budgets are allocated. To understand why, it helps to look at the history that made it necessary.

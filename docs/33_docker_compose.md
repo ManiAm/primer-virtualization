@@ -219,4 +219,4 @@ Compose turns `$$` into `$` before sending the command to Docker, so the contain
 
 ---
 
-[← Previous: Docker Internals](32_docker_internals.md) | [Next: Network Virtualization →](34_network_virtualization.md)
+[← Previous: Docker Internals](32_docker_internals.md) | [Next: Lightweight Virtualization →](34_lightweight_virtualization.md)

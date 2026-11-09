@@ -1,6 +1,6 @@
 # Network Virtualization
 
-The [introduction](01_introduction.md) identified three main categories of virtualization: hardware, operating system, and network. The primer covers hardware virtualization in depth ([Chapters 2–20](02_hardware_virtualization.md)) and OS-level virtualization through Docker ([Chapters 21–33](21_os_virtualization.md)). This chapter introduces the third category — **network virtualization** — and connects it to the networking concepts that appeared throughout the primer.
+The [introduction](01_introduction.md) identified four main categories of virtualization: hardware, operating system, lightweight, and network. The primer covers hardware virtualization ([Chapters 2–20](02_hardware_virtualization.md)), OS-level virtualization through Docker ([Chapters 21–33](21_os_virtualization.md)), and lightweight virtualization ([Chapter 34](34_lightweight_virtualization.md)). This chapter introduces the final category — **network virtualization** — and connects it to the networking concepts that appeared throughout the primer.
 
 ## What is Network Virtualization?
 
@@ -132,4 +132,4 @@ These tools demonstrate network virtualization at a small scale — a single hos
 
 ---
 
-[← Previous: Docker Compose](33_docker_compose.md)
+[← Previous: Lightweight Virtualization](34_lightweight_virtualization.md)

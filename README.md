@@ -92,8 +92,14 @@ This primer covers virtualization from the ground up: the history and motivation
 | 32 | [Docker Internals](docs/32_docker_internals.md)                      | Evolution from LXC to containerd, OCI, and runC             |
 | 33 | [Docker Compose](docs/33_docker_compose.md)                          | Multi-container orchestration, build, and environment config |
 
+## Lightweight Virtualization
+
+| # | Topic | Description |
+| -- | --------------------------------------------------------------------- | ----------------------------------------------------------- |
+| 34 | [Lightweight Virtualization](docs/34_lightweight_virtualization.md)   | MicroVMs, Firecracker, Kata Containers, gVisor, unikernels  |
+
 ## Network Virtualization
 
 | # | Topic | Description |
 | -- | --------------------------------------------------------------------- | ----------------------------------------------------------- |
-| 34 | [Network Virtualization](docs/34_network_virtualization.md)          | SDN, NFV, virtual switches, VLANs, overlays, and namespaces |
+| 35 | [Network Virtualization](docs/35_network_virtualization.md)          | SDN, NFV, virtual switches, VLANs, overlays, and namespaces |
