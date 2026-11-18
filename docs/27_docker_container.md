@@ -91,6 +91,42 @@ Nginx runs a blocking web server — the container stays running in detached mod
 docker run -d -it --name my-ubuntu ubuntu:24.04
 ```
 
+### The PID 1 Problem
+
+The main process must stay alive for the container to keep running. But staying alive is not the only responsibility of PID 1. On a regular Linux system, PID 1 is a proper init process (such as systemd) specifically designed to handle two duties that most applications are not built for: **forwarding signals** and **reaping zombie processes**. Inside a container, the application itself is thrust into the PID 1 role — and this can cause subtle problems.
+
+- **Signal handling.** The Linux kernel treats PID 1 specially — it only delivers a signal if the process has explicitly registered a handler for it. When you run `docker stop`, Docker sends `SIGTERM` to PID 1, giving it a chance to shut down gracefully. But if the application has not installed a `SIGTERM` handler, the signal is silently ignored. Docker waits for the grace period to expire and then resorts to `SIGKILL` — a forceful termination with no chance for cleanup (flushing buffers, closing connections, saving state).
+
+- **Zombie reaping.** When a child process exits, it remains in the process table as a **zombie** — a finished process whose exit status has not been collected yet. Normally, the parent process calls `wait()` to collect this status and remove the zombie. If the parent exits first, the orphaned child is reparented to PID 1. On a regular system, the init process reaps these zombies automatically. But a typical application running as PID 1 does not call `wait()` on adopted children, so zombies accumulate inside the container over time.
+
+For a simple single-process container that handles `SIGTERM` properly and does not spawn children, running without a dedicated init is fine. The problems show up when:
+
+- The main process is a shell script or wrapper that does not trap signals.
+- The application spawns child processes (workers, subcommands, background tasks).
+- The container is long-running and accumulates orphaned processes over time.
+
+To solve these problems, containers can use a lightweight **init process** as PID 1 — a minimal program that forwards signals to the application and reaps zombies, without the overhead of a full init system.
+
+Docker has built-in support for this via the `--init` flag, which injects [tini](https://github.com/krallin/tini) as PID 1:
+
+```bash
+docker run --init my-app
+```
+
+With `--init`, tini runs as PID 1 and starts the application as its child process. It forwards signals like `SIGTERM` to the child and reaps any zombies that appear — both problems solved with no changes to the application.
+
+For more advanced use cases — such as running multiple processes in a single container — a process supervisor can be used instead:
+
+| Tool                                                  | Year | Purpose                                                                 |
+|-------------------------------------------------------|------|-------------------------------------------------------------------------|
+| [Monit](https://mmonit.com/monit/)                    | 2001 | Process monitoring with automatic restarts, alerting, and a built-in web interface |
+| [Supervisord](https://supervisord.org/)               | 2004 | Process control with logging, remote management, and automatic restarts |
+| [s6](https://skarnet.org/software/s6/overview.html)   | 2014 | Lightweight process supervision suite in the daemontools/runit lineage; often used in containers via [s6-overlay](https://github.com/just-containers/s6-overlay) |
+| [tini](https://github.com/krallin/tini)               | 2015 | Minimal init for containers; signal forwarding and zombie reaping only  |
+| [dumb-init](https://github.com/Yelp/dumb-init)        | 2015 | Minimal init similar to tini; also supports signal rewriting and process group signaling |
+
+For most single-process containers, Docker's built-in `--init` flag is sufficient. For containers that run multiple cooperating daemons, a full process supervisor like Supervisord or s6 is the better choice — for example, [SONiC](https://github.com/ManiAm/sonic-lab-internals/blob/master/docs/06_inside_a_running_container.md) runs Supervisord as PID 1 inside every container to manage daemon startup ordering, logging, and health monitoring.
+
 ## Container Lifecycle
 
 A container transitions through several states during its lifetime. Docker defines **seven** official states:
