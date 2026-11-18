@@ -105,4 +105,4 @@ The `-drive if=pflash` option attaches `flash.img` as a flash memory device. QEM
 
 ---
 
-[← Previous: System Emulation (x86)](08_qemu_system_emulation.md) | [Next: Direct Linux Boot →](10_direct_linux_boot.md)
+[← Previous: System Emulation (x86)](08_qemu_system_emulation.md) | [Next: QEMU and KVM →](11_qemu_and_kvm.md)

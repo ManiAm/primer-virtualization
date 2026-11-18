@@ -19,7 +19,6 @@ This primer covers the subject from the ground up: history and motivation, hyper
 | 04 | [QEMU](docs/04_qemu.md)                                              | Quick Emulator overview, binary translation, and TCG         |
 | 05 | [Virtual Disk Images](docs/05_virtual_disk_image.md)                  | Raw images, creation tools (`dd`, `truncate`, `qemu-img`)   |
 | 06 | [QCOW2 Images](docs/06_qcow2_image.md)                               | QCOW2 format, clusters, snapshots, and internal structure   |
-| 07 | [Minimal Root Filesystem](docs/07_minimal_root_fs.md)                 | Mounting QCOW2 images and creating a minimal root FS        |
 
 ## QEMU System & User Emulation
 
@@ -27,7 +26,6 @@ This primer covers the subject from the ground up: history and motivation, hyper
 | -- | --------------------------------------------------------------------- | ----------------------------------------------------------- |
 | 08 | [System Emulation (x86)](docs/08_qemu_system_emulation.md)            | Installing QEMU, emulating x86 VMs, serial redirection     |
 | 09 | [System Emulation (ARM)](docs/09_qemu_system_emulation_arm.md)        | Cross-architecture emulation: ARM on x86 with pflash        |
-| 10 | [Direct Linux Boot](docs/10_direct_linux_boot.md)                     | Booting kernels directly with and without initrd            |
 | 11 | [QEMU and KVM](docs/11_qemu_and_kvm.md)                              | KVM acceleration and nested virtualization                  |
 | 12 | [User-mode Emulation](docs/12_qemu_user_emulation.md)                | Running foreign-architecture binaries on the host           |
 

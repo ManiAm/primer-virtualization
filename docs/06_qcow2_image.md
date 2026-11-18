@@ -448,4 +448,4 @@ The overlay starts nearly empty. Reads for unmodified data are forwarded to `bas
 
 ---
 
-[← Previous: Virtual Disk Images](05_virtual_disk_image.md) | [Next: Minimal Root Filesystem →](07_minimal_root_fs.md)
+[← Previous: Virtual Disk Images](05_virtual_disk_image.md) | [Next: System Emulation (x86) →](08_qemu_system_emulation.md)

@@ -200,7 +200,7 @@ mount /dev/vda /mnt
 
 ## Virtual Disk Image
 
-A QCOW2 image can serve as a shared storage medium: populate it with files on the host, then attach it to the VM. This approach uses the same NBD (Network Block Device) workflow covered in [Chapter 7 — Minimal Root Filesystem](07_minimal_root_fs.md).
+A QCOW2 image can serve as a shared storage medium: populate it with files on the host, then attach it to the VM. This approach uses the NBD (Network Block Device) workflow to mount QCOW2 images on the host.
 
 ### Preparing the Image on the Host
 

@@ -126,4 +126,4 @@ You can now use `-accel kvm` or `-enable-kvm` in your QEMU commands inside the g
 
 ---
 
-[← Previous: Direct Linux Boot](10_direct_linux_boot.md) | [Next: User-mode Emulation →](12_qemu_user_emulation.md)
+[← Previous: System Emulation (ARM)](09_qemu_system_emulation_arm.md) | [Next: User-mode Emulation →](12_qemu_user_emulation.md)

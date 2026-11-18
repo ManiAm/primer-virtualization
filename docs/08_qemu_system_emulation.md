@@ -117,4 +117,4 @@ This is useful for debugging, monitoring, or scripting interactions with the VM'
 
 ---
 
-[← Previous: Minimal Root Filesystem](07_minimal_root_fs.md) | [Next: System Emulation (ARM) →](09_qemu_system_emulation_arm.md)
+[← Previous: QCOW2 Images](06_qcow2_image.md) | [Next: System Emulation (ARM) →](09_qemu_system_emulation_arm.md)
